@@ -44,6 +44,8 @@ namespace IndexStatement.API
 
             services.AddTransient <IEnergyTypeBL, EnergyTypeBL>();
             services.AddTransient<IEnergyTypeRepository, EnergyTypeRepository>();
+            services.AddTransient<IUnityBL, UnityBL>();
+            services.AddTransient<IUnityRepository, UnityRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
