@@ -24,39 +24,39 @@ namespace IndexStatement.API.Controllers
 
         // GET: api/<EnergyTypeController>
         [HttpGet]
-        public IEnumerable<EnergyTypeDTO> GetAll()
+        public ActionResult<IEnumerable<EnergyTypeDTO>> GetAll()
         {
-            return _energyTypeBL.GetAll();
+            return Ok(_energyTypeBL.GetAll());
         }
 
         // GET api/<EnergyTypeController>/5
         [HttpGet("{id}")]
-        public EnergyTypeDTO GetById(int id)
+        public ActionResult<EnergyTypeDTO> GetById(int id)
         {
             var energyTypeDTO = _energyTypeBL.GetById(id);
 
-            return energyTypeDTO;
+            return Ok(energyTypeDTO);
         }
 
         // POST api/<EnergyTypeController>
         [HttpPost]
-        public int Post([FromBody] EnergyTypeDTO energyTypeDTO)
+        public ActionResult<int> Post([FromBody] EnergyTypeDTO energyTypeDTO)
         {
-            return _energyTypeBL.Post(energyTypeDTO);
+            return Ok(_energyTypeBL.Post(energyTypeDTO));
         }
 
         // PUT api/<EnergyTypeController>/5
         [HttpPut("{id}")]
-        public EnergyTypeDTO Put(int id, [FromBody] EnergyTypeDTO energyTypeDTO)
+        public ActionResult<EnergyTypeDTO> Put(int id, [FromBody] EnergyTypeDTO energyTypeDTO)
         {
-            return _energyTypeBL.Put(id, energyTypeDTO);
+            return Ok(_energyTypeBL.Put(id, energyTypeDTO));
         }
 
         // DELETE api/<EnergyTypeController>/5
         [HttpDelete("{id}")]
-        public int Delete(int id)
+        public ActionResult<int> Delete(int id)
         {
-           return _energyTypeBL.Delete(id);
+           return Ok(_energyTypeBL.Delete(id));
         }
     }
 }

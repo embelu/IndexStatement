@@ -23,39 +23,39 @@ namespace IndexStatement.API.Controllers
 
         // GET: api/<UnityController>
         [HttpGet]
-        public IEnumerable<UnityDTO> GetAll()
+        public ActionResult<IEnumerable<UnityDTO>> GetAll()
         {
-            return _UnityBL.GetAll();
+            return Ok(_UnityBL.GetAll());
         }
 
         // GET api/<UnityController>/5
         [HttpGet("{id}")]
-        public UnityDTO GetById(int id)
+        public ActionResult<UnityDTO> GetById(int id)
         {
             var UnityDTO = _UnityBL.GetById(id);
 
-            return UnityDTO;
+            return Ok(UnityDTO);
         }
 
         // POST api/<UnityController>
         [HttpPost]
-        public int Post([FromBody] UnityDTO UnityDTO)
+        public ActionResult<int> Post([FromBody] UnityDTO UnityDTO)
         {
-            return _UnityBL.Post(UnityDTO);
+            return Ok(_UnityBL.Post(UnityDTO));
         }
 
         // PUT api/<UnityController>/5
         [HttpPut("{id}")]
-        public UnityDTO Put(int id, [FromBody] UnityDTO UnityDTO)
+        public ActionResult<UnityDTO> Put(int id, [FromBody] UnityDTO UnityDTO)
         {
-            return _UnityBL.Put(id, UnityDTO);
+            return Ok(_UnityBL.Put(id, UnityDTO));
         }
 
         // DELETE api/<UnityController>/5
         [HttpDelete("{id}")]
-        public int Delete(int id)
+        public ActionResult<int> Delete(int id)
         {
-            return _UnityBL.Delete(id);
+            return Ok(_UnityBL.Delete(id));
         }
     }
 }
